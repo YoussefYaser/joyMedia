@@ -1,0 +1,7 @@
+.home .sign{
+    background: linear-gradient(115deg, #bebebe, white);
+}
+
+.home .sign .sign-box{
+    border-top-left-radius: 60px;
+}

@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      colors : {
+        blueColor : '#0A66C2'
+      },
       fontSize: {
         h1: '2rem',
         h2: '1.5rem',

@@ -1,11 +1,11 @@
-import { forwardRef, useEffect } from 'react'
+import { forwardRef } from 'react'
 import './Nav.css'
 
 const Nav = forwardRef(function Nav(props, { nav }) {
 
 
     return (
-        <nav className='bg-[#f4f4f4]' ref={nav}>
+        <nav className='bg-[#f4f4f4] fixed w-full top-0 start-0' ref={nav}>
             <div className="container">
                 <div className=' flex justify-between items-center py-2'>
                     <h1 className='text-h2'>joyApp</h1>
