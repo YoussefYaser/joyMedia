@@ -16,8 +16,8 @@ export default {
       },
       container: {
         padding: {
-          DEFAULT: 'calc(var(--gutter-x) * 1) !important',
-          sm : 'calc(var(--gutter-x) * 0.5) !important'
+          DEFAULT: 'calc(var(--gutter-x) * 0.5) !important',
+          sm : 'calc(var(--gutter-x) * 1) !important'
         },
         center: true
       }
