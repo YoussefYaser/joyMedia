@@ -7,7 +7,10 @@ export default {
   theme: {
     extend: {
       colors : {
-        blueColor : '#0A66C2'
+        blueColor : '#095aab',
+        darkBlueColor : '#084480',
+        darkerBlueColor : '#182a3d',
+        grayColor : '#bebebe'
       },
       fontSize: {
         h1: '2rem',
@@ -27,5 +30,6 @@ export default {
     },
   },
   plugins: [],
-  important : true
+  important : true,
+  darkMode : 'class'
 }

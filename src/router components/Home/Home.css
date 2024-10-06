@@ -1,7 +1,44 @@
 .home .sign{
-    background: linear-gradient(115deg, #bebebe, white);
+    background: linear-gradient(115deg, #bebebe, white 40%);
+}
+
+body.dark .home .sign{
+    background: linear-gradient(115deg, #182a3d, #084480);
 }
 
 .home .sign .sign-box{
     border-top-left-radius: 60px;
+}
+
+@media(max-width : 640px){
+    .home .sign .sign-box,
+    .home .sign .drawer > div{
+        width: 500px !important;
+    }
+}
+
+@media(max-width : 535px){
+    .home .sign{
+        display: block !important;
+    }
+    .home .sign .sign-box,
+    .home .sign .drawer > div{
+        width: 100% !important;
+        flex-direction: column !important;
+    }
+    .home .sign .sign-box > div,
+    .home .sign .drawer div{
+        width: 100% !important;
+    }
+    .home .sign .sign-box .drawer{
+        height: 50% !important;
+    }
+    .home .sign .drawer > div{
+        height: 882px !important;
+    }
+    .home .sign .sign-box > div,
+    .home .sign .drawer > div > div{
+        height: 425px;
+        justify-content: center;
+    }
 }
