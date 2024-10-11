@@ -1,0 +1,5 @@
+.posts .row > div{
+    transition-property: opacity, transform;
+    transition-duration: 1s, 0.5s;
+    will-change: transform , opacity;
+}

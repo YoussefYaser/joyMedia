@@ -1,0 +1,39 @@
+{
+    "sign" : {
+        "greeting" : "welcome to joyMedia",
+        "signUp" : "sign up",
+        "signIn" : "sign in",
+        "logout" : "logout",
+        "inputs" : {
+            "name" : {
+                "name" : "name",
+                "placeholder" : "No Numbers"
+            },
+            "email" : "email",
+            "password" : "password",
+            "repassword" : "repassword",
+            "dateOfBirth" : "date of birth",
+            "gender" : {
+                "gender" : "gender",
+                "male" : "male",
+                "female": "female"
+            }
+        },
+        "signUpRules" : {
+            "head" : "sign up fields rules:",
+            "name" : "name : the name can not contain any numbers.",
+            "email" : "email : The email could not start or finish with a dot, should not contain spaces, special chars and The email could contain a double domain.",
+            "password" : "password : The password has minimum 8 characters at least one uppercase, lowercase, digit and special character."
+        },
+        "signInError" : "Invalid email - not found"
+    },
+
+    "nav" : {
+        "createPost" : "create post"
+    },
+
+    "post" :{
+        "comments" : "comments",
+        "showMore" : "show more"
+    }
+}

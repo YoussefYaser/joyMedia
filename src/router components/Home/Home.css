@@ -1,0 +1,8 @@
+.home{
+    background: linear-gradient(115deg, #bebebe, white 40%);
+}
+
+body.dark .home{
+    background: linear-gradient(115deg, #182a3d, #084480);
+
+}

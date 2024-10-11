@@ -10,7 +10,8 @@ export default {
         blueColor : '#095aab',
         darkBlueColor : '#084480',
         darkerBlueColor : '#182a3d',
-        grayColor : '#bebebe'
+        grayColor : '#bebebe',
+        lightGrayColor : '#F4F4F4'
       },
       fontSize: {
         h1: '2rem',

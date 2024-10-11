@@ -18,9 +18,23 @@ body.dark .home .sign {
     }
 }
 
+@media(min-width:535px) and (max-width : 640px) {
+    .home .sign .drawer .sign-up p {
+        font-size: 14px;
+    }
+
+    .home .sign .drawer .sign-in ul li {
+        font-size: 13px;
+    }
+}
+
 @media(max-width : 535px) {
-    .home .sign {
-        display: block !important;
+    .home .sign h2 {
+        margin-top: 2rem !important;
+    }
+
+    .home .sign .sign-box {
+        height: 882px !important;
     }
 
     .home .sign .sign-box,
@@ -49,3 +63,49 @@ body.dark .home .sign {
     }
 }
 
+.home .sign.hide {
+    transform: translateY(-100%);
+    transition-duration: 1s;
+    transition-delay: 1s;
+}
+
+.home .sign .sign-box.hide {
+    height: 0 !important;
+    opacity: 0 !important;
+    transition-duration: 1s;
+}
+
+.sign .main-load{
+    opacity: 0;
+    animation-name: show-main-load;
+    animation-duration: 1s;
+    animation-delay: 0.7s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes show-main-load{
+    100%{
+        opacity: 100% ;
+    }
+}
+
+.sign .main-load span {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 3px solid #084480;
+    border-right: 3px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

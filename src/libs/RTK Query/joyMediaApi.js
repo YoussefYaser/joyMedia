@@ -11,7 +11,14 @@ export const joyMediaApi = createApi({
                 body : values
             }),
         }),
+        SignIn: builder.mutation({
+            query: ({values}) => ({
+                url: `https://linked-posts.routemisr.com/users/signin`,
+                method: 'POST',
+                body : values
+            }),
+        }),
     })
 })
 
-export const { useSignUpMutation } = joyMediaApi;
+export const { useSignUpMutation, useSignInMutation } = joyMediaApi;
