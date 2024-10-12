@@ -1,9 +1,23 @@
-import { forwardRef } from 'react'
+import { forwardRef, useCallback, useContext } from 'react'
 import './Nav.css'
 import LanguageSelector from '../Language selector/LanguageSelector';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { Authentication } from '../../context/AuthenticationContext/AuthenticationContextProvider';
 
 const Nav = forwardRef(function Nav(props, { nav }) {
+
+    let { setIsLogin, setHideSign, setPostsLoaded } = useContext(Authentication);
+    let navigate = useNavigate();
+
+
+    const handleLogout = useCallback(()=>{
+        setIsLogin(false);
+        setPostsLoaded(false);
+        setHideSign(false);
+        localStorage.removeItem('joyMediaToken');
+        navigate('/');
+    }, [])
 
     const {t} = useTranslation();
 
@@ -22,7 +36,7 @@ const Nav = forwardRef(function Nav(props, { nav }) {
                         </div>
                     </div>
                     <div className="flex">
-                        <button className=' bg-white dark:bg-lightGrayColor border-2 border-black dark:border-darkerBlueColor py-1 px-2 me-3 rounded-md hover:bg-black dark:hover:bg-darkBlueColor hover:text-white transition-colors duration-300'>
+                        <button className=' bg-white dark:bg-lightGrayColor border-2 border-black dark:border-darkerBlueColor py-1 px-2 me-3 rounded-md hover:bg-black dark:hover:bg-darkBlueColor hover:text-white transition-colors duration-300' onClick={handleLogout}>
                             {t("sign.logout")}
                         </button>
                         <LanguageSelector block="block"></LanguageSelector>

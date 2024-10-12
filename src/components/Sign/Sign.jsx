@@ -10,7 +10,7 @@ import i18next from 'i18next';
 import SignIn from '../SignIn/SignIn';
 
 
-export default function Sign() {
+export default function Sign({postsLoaded}) {
 
     const checkVertical = window.innerWidth >= 535 ? false : true;
     let [vertical, setVertical] = useState(checkVertical);
@@ -55,7 +55,7 @@ export default function Sign() {
     return (
         <>
             <div className='fixed w-full h-full z-[99999] top-0 left-0 overflow-auto'>
-                <div className={`sign px-4 py-10  w-full min-h-full top-0 left-0  flex justify-center items-center content-center flex-wrap `}>
+                <div className={`sign px-4 py-10  w-full min-h-full top-0 left-0  flex justify-center items-center content-center flex-wrap ${postsLoaded?'hide' : ''}`}>
                     <LanguageSelector></LanguageSelector>
                     <div>
                         <h2 className=' text-[2.5rem] w-full text-center mb-8 text-darkBlueColor dark:text-white'>
