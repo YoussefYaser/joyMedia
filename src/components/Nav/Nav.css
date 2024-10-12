@@ -1,0 +1,30 @@
+
+@media(max-width : 390px){
+    nav .bar span{
+        display: flex !important;
+    }
+    nav .bar > div{
+        visibility: hidden;
+        opacity: 0;
+        flex-direction: column-reverse !important;
+        padding: 0.5rem;
+        position: absolute;
+        top: 110%;
+        right: 0;
+        background-color: #f4f4f4;
+        transition: visibility 0.5s 0.5s, opacity 0.5s 0s;
+    }
+    nav .bar > div.show{
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.5s;
+    }
+    nav .bar > div button{
+        margin: 0 !important;
+    }
+    nav .bar > div .lang-selector{
+        margin-bottom: 8px !important;
+    }
+
+
+}

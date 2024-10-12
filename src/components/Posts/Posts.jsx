@@ -16,13 +16,13 @@ export default function Posts({ setPostsLoaded }) {
         queryFn: () => getAllPosts(postNum),
         select: (data) => data.data.posts,
         refetchOnWindowFocus: false
-    });
+    });    
 
     function handleLoading(){
         let temp =[];
 
         for(let i=0; i<5; i++){
-            temp.push(<div className='w-1/2 mx-auto mb-6'>
+            temp.push(<div className='w-full md:w-1/2 mx-auto mb-6'>
                     <div className="row gy-4">
                         <div className='w-full shadow-md dark:shadow-gray-900 p-4 bg-lightGrayColor dark:bg-darkerBlueColor rounded-md'>
                             <div className='header flex mb-4'>
@@ -81,14 +81,14 @@ export default function Posts({ setPostsLoaded }) {
     if (isLoading) {
         return (
             <div className=' py-10'>
-                {handleLoading().map((load)=>load)}
+                {handleLoading().map((load, i)=><div key={i}>{load}</div>)}
             </div>
         )
     }
     else if (isSuccess) {
         return (
             <section className='posts py-10'>
-                <div className='w-1/2 mx-auto'>
+                <div className='w-full md:w-1/2 mx-auto'>
                     <div className="row gy-4">
                         {data.map((post, i) =>
                             <div key={post.id} ref={(el) => posts.current.push(el)} className={`w-full opacity-0 scale-0`}>

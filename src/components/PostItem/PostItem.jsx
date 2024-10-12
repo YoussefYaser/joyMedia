@@ -4,9 +4,11 @@ import './PostItem.css'
 
 export default function PostItem({ post }) {
 
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     const {t} = useTranslation();
 
+    const date = new Date(post.createdAt);
 
     return (
         <div className={`shadow-md dark:shadow-gray-900 p-4 bg-lightGrayColor dark:bg-darkerBlueColor rounded-md `}>
@@ -16,7 +18,11 @@ export default function PostItem({ post }) {
                 </div>
                 <div className=' ps-3'>
                     <h2 className='text-h5 text-darkerBlueColor dark:text-white'>{post.user.name}</h2>
-                    <p className=' capitalize text-grayColor text-h5'>sept 2024</p>
+                    <p className=' capitalize text-grayColor text-h5'>
+                        {date.getDate()}
+                        {months[date.getMonth()]}
+                        {date.getFullYear()}
+                    </p>
                 </div>
             </div>
             <div className='body mb-4'>
@@ -37,7 +43,11 @@ export default function PostItem({ post }) {
                         </div>
                         <div className=' ps-3'>
                             <h2 className='text-h5 text-darkerBlueColor dark:text-white'>{post.user.name}</h2>
-                            <p className=' capitalize text-grayColor text-h5'>sept 2024</p>
+                            <p className=' capitalize text-grayColor text-h5'>
+                                {new Date(post.comments[0].createdAt).getDate()}
+                                {months[new Date(post.comments[0].createdAt).getMonth()]}
+                                {new Date(post.comments[0].createdAt).getFullYear()}
+                            </p>
                         </div>
                     </div>
                     <p dir='ltr' className='ps-2 text-black dark:text-white'>{post.comments[0].content}</p>

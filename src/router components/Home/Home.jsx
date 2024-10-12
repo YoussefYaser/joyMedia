@@ -9,9 +9,6 @@ export default function Home() {
     let { isLogin } = useContext(Authentication);
     let { postsLoaded, setPostsLoaded } = useContext(Authentication);
     let { hideSign, setHideSign } = useContext(Authentication);
-
-    console.log("isLogin : ", isLogin);
-    console.log(hideSign, postsLoaded);
     
 
     useEffect(()=>{
