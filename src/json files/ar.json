@@ -27,13 +27,17 @@
         },
         "signInError" : "الحساب غير مفعل"
     },
-
     "nav" : {
         "createPost" : "كتابة منشور"
     },
-
     "post" :{
         "comments" : "التعليقات",
         "showMore" : "المزيد"
+    },
+    "postOverlay" : {
+        "createPost" : "كتابة منشور",
+        "placeholder" : "اكتب ما تريد ان تتحدث عنه",
+        "post" : "نشر"
+
     }
 }

@@ -42,15 +42,15 @@ export default function PostItem({ post }) {
                             <img src={post.user.photo} className='w-full' alt="" />
                         </div>
                         <div className=' ps-3'>
-                            <h2 className='text-h5 text-darkerBlueColor dark:text-white'>{post.user.name}</h2>
+                            <h2 className='text-h5 text-darkerBlueColor dark:text-white'>{post?.user?.name}</h2>
                             <p className=' capitalize text-grayColor text-h5'>
-                                {new Date(post.comments[0].createdAt).getDate()}
-                                {months[new Date(post.comments[0].createdAt).getMonth()]}
-                                {new Date(post.comments[0].createdAt).getFullYear()}
+                                {new Date(post.comments[0]?.createdAt).getDate()}
+                                {months[new Date(post.comments[0]?.createdAt).getMonth()]}
+                                {new Date(post.comments[0]?.createdAt).getFullYear()}
                             </p>
                         </div>
                     </div>
-                    <p dir='ltr' className='ps-2 text-black dark:text-white'>{post.comments[0].content}</p>
+                    <p dir='ltr' className='ps-2 text-black dark:text-white'>{post.comments[0]?.content}</p>
                 </div>
             </div>
             <button className='block text-sm capitalize  px-2 rounded mt-2 mx-auto font-bold bg-[#d7d7d7] text-darkBlueColor shadow shadow-darkerBlueColor hover:scale-110 transition-transform duration-300'>

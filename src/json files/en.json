@@ -27,13 +27,17 @@
         },
         "signInError" : "Invalid email - not found"
     },
-
     "nav" : {
         "createPost" : "create post"
     },
-
     "post" :{
         "comments" : "comments",
         "showMore" : "show more"
+    },
+    "postOverlay" : {
+        "createPost" : "Crate a post",
+        "placeholder" : "What do you want to talk about?",
+        "post" : "post"
+
     }
 }

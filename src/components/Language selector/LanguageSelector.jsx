@@ -5,10 +5,7 @@ import { useEffect, useState } from 'react'
 import './LanguageSelector.css'
 
 
-export default function LanguageSelector({block}) {   
-    
-    console.log(block);
-    
+export default function LanguageSelector({block}) {       
 
     let [lang, setLang] = useState('en');
     let [showList, setShowList] = useState('');

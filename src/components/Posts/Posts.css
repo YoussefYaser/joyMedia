@@ -3,3 +3,27 @@
     transition-duration: 1s, 0.5s;
     will-change: transform , opacity;
 }
+
+.posts .reload span {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 3px solid #084480;
+    border-right: 3px solid transparent;
+    box-sizing: border-box;
+}
+
+.posts .reload.start span {
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

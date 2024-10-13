@@ -1,4 +1,3 @@
-
 @media(max-width : 390px){
     nav .bar span{
         display: flex !important;
@@ -25,6 +24,5 @@
     nav .bar > div .lang-selector{
         margin-bottom: 8px !important;
     }
-
-
 }
+
