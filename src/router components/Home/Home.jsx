@@ -23,6 +23,7 @@ export default function Home() {
     return (
         <section className='home'>
             <div className="container">
+                
                 {hideSign?'':<Sign postsLoaded={postsLoaded}></Sign>}
                 {isLogin?
                     <Posts setPostsLoaded={setPostsLoaded}></Posts>

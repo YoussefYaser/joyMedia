@@ -1,14 +1,15 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import './MyPosts.css'
-import { Mousewheel, Pagination } from 'swiper/modules';
-import { useQueries, useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import getUserPosts from '../../javaScript files/functions/getUserPosts';
 import { Skeleton } from '@mui/material';
 import PostItem from '../../components/PostItem/PostItem';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
-export default function Myposts() {
+export default function Myposts({ onMain }) {
+
+    let userDetails = useSelector((store) => store.userDetails);
 
     let { data: posts, isLoading, isFetching, isError, error, isSuccess } = useQuery({
         queryKey: ['myPosts'],
@@ -17,7 +18,6 @@ export default function Myposts() {
         refetchOnWindowFocus: false
     })
 
-    console.log(posts);
 
     function handleLoading() {
         let temp = [];
@@ -49,34 +49,51 @@ export default function Myposts() {
         return temp;
     }
 
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
     if (isLoading) {
         return (
             <div className='my-posts py-10 px-4'>
-                {handleLoading().map((load, i) => <div key={i}>{load}</div>)}
+                <div className="container">
+                    {handleLoading().map((load, i) => <div key={i}>{load}</div>)}
+                </div>
             </div>
         )
     }
     else if (isSuccess) {
         return (
-            <section className='my-posts py-10'>
-                <div className="container">
-                    <div className='w-full md:w-1/2 mx-auto'>
+            <section className={`${onMain ? '' : 'my-posts py-10'}`} style={{ minHeight: 'calc(100vh - 56px)' }}>
+                <div className={`${onMain ? '' : 'container'} `}>
+                    
+                    {onMain?'':<div className='mb-5'>
+                        <h2 className=' text-h1 text-center  capitalize mb-3 text-darkBlueColor dark:text-white'>
+                            {userDetails.name} {t("profile.profile")}
+                        </h2>
+                        <div className='size-40 overflow-hidden mx-auto rounded-full border-4 border-darkBlueColor dark:border-white mb-3'>
+                            <img src={userDetails.photo} className=' w-full'  alt="" />
+                        </div>
+                        <label htmlFor='profile-image' className=' block w-fit mx-auto capitalize cursor-pointer text-black hover:text-grayColor'>{t("profile.photo")}</label>
+                        <input id='profile-image' type="file" className='hidden' />
+                        <ul className=' w-fit mx-auto text-center mt-6 capitalize text-darkerBlueColor dark:text-white'>
+                            <li>{userDetails.gender}</li>
+                            <li>{userDetails.dateOfBirth}</li>
+                        </ul>
+                    </div>}
+                    
+                    <div className={`w-full ${onMain ? '' : 'md:w-1/2 mx-auto'} `}>
                         <h2 className=' text-h1 text-center mb-5 capitalize text-darkBlueColor dark:text-white'>
-                            {t("myPosts.myPosts")}
+                            {userDetails.name} {t("myPosts.myPosts")}
                         </h2>
                         <div className="row gy-4">
                             {posts.length ? posts.map((post) =>
                                 <div key={post.id} className={`w-full`}>
                                     <PostItem post={post}></PostItem>
                                 </div>
-                            ) : 
+                            ) :
                                 <p className=' text-darkerBlueColor dark:text-white text-center w-full mt-10 capitalize'>
                                     {t("myPosts.NoPosts")}
                                 </p>
                             }
-
                         </div>
                     </div>
                 </div>

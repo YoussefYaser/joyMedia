@@ -1,22 +1,28 @@
 import { Outlet } from 'react-router-dom'
 import Nav from '../../components/Nav/Nav'
 import './Layout.css'
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
+import { Authentication } from '../../context/AuthenticationContext/AuthenticationContextProvider';
 
 export default function Layout() {
-    
+
     let [navHeight, setNavHeight] = useState({});
     let nav = useRef();
-    
-    useEffect(()=>{
+
+    let { isLogin } = useContext(Authentication);
+
+    useEffect(() => {
         setNavHeight({
-            paddingTop : nav.current.clientHeight
+            paddingTop: nav?.current?.clientHeight
         });
-    }, []);
+    }, [nav, isLogin]);
 
     return (
         <section className='layout' style={navHeight}>
-            <Nav ref={{nav}}></Nav>
+            {isLogin ?
+                <Nav ref={{ nav }}></Nav>
+                : ''
+            }
             <Outlet></Outlet>
         </section>
     )

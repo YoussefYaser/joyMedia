@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import { store } from './libs/store.js'
 import './javaScript files/i18n.js'
 import AuthenticationContextProvider from './context/AuthenticationContext/AuthenticationContextProvider.jsx'
+import 'swiper/css'
 
 
 

@@ -1,5 +1,4 @@
 .my-posts{
-    min-height: calc(100vh - 56px);
     background: linear-gradient(115deg, #bebebe, white 40%);
 }
 
