@@ -1,0 +1,8 @@
+.my-posts{
+    min-height: calc(100vh - 56px);
+    background: linear-gradient(115deg, #bebebe, white 40%);
+}
+
+body.dark .my-posts{
+    background: linear-gradient(115deg, #182a3d, #084480);
+}

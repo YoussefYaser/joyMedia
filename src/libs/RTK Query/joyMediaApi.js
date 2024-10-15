@@ -19,11 +19,11 @@ export const joyMediaApi = createApi({
             }),
         }),
         createPost: builder.mutation({
-            query: ({body, headers}) => ({
+            query: ({formData, headers}) => ({
                 url: `https://linked-posts.routemisr.com/posts`,
                 method: 'POST',
-                body,
-                headers
+                body : formData,
+                headers : headers
             }),
         }),
     })

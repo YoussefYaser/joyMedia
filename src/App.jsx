@@ -4,6 +4,7 @@ import './App.css'
 import Layout from './router components/Layout/Layout';
 import Home from './router components/Home/Home';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Myposts from './router components/MyPosts/Myposts';
 
 
 const queryClient = new QueryClient();
@@ -12,7 +13,8 @@ function App() {
 
   const routes = createHashRouter([
     {path : '/', element : <Layout></Layout>, children : [
-      {index : true, element : <Home></Home>}
+      {index : true, element : <Home></Home>},
+      {path : '/myPosts', element : <Myposts></Myposts>}
     ]}
   ]);
 

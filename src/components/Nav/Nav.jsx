@@ -12,14 +12,9 @@ import { use } from 'i18next';
 const Nav = forwardRef(function Nav(props, { nav }) {
 
     let [bar, setBar] = useState(false);
-    let [file, setFile] = useState('')
     let { setIsLogin, setHideSign, setPostsLoaded } = useContext(Authentication);
-    let [click, setClick] = useState('');
     let [showOverlay, setShowOverlay] = useState(false);
-    let [barProgress, setBarProgress] = useState({
-        length: 0,
-        opacity: 0
-    });
+    
 
 
     const [open, setOpen] = useState(false);
@@ -31,32 +26,7 @@ const Nav = forwardRef(function Nav(props, { nav }) {
 
     const [createPost, { data, isLoading, isError, error, isSuccess }] = useCreatePostMutation();
 
-    function changeFile(e) {
-        const img = URL.createObjectURL(e.target.files[0]);
-        setFile({
-            blob: img,
-            object: e.target.files[0]
-        });
-        const reader = new FileReader();
-        reader.readAsDataURL(e.target.files[0]);
-
-        let percentLoaded;
-
-        reader.onloadstart = () => setBarProgress({ opacity: 0, length: 0 })
-
-        reader.onprogress = (e) => {
-            if (e.lengthComputable) {
-                percentLoaded = Math.round((e.loaded / e.total) * 100);
-                setBarProgress({ opacity: 0, length: percentLoaded });
-                console.log(percentLoaded);
-                console.log('hi');
-
-
-            }
-        }
-
-        reader.onloadend = () => setBarProgress({ opacity: 1, length: percentLoaded });
-    }
+    
 
     const handleOverlay = useCallback(()=>{
         setShowOverlay(true);
@@ -109,7 +79,7 @@ const Nav = forwardRef(function Nav(props, { nav }) {
                 </div>
             </nav>
             {showOverlay ?
-                <PostsOverlay file={file} barProgress={barProgress} changeFile={changeFile} click={click} setClick={setClick} modal={{ handleClose, handleOpen }}></PostsOverlay>
+                <PostsOverlay modal={{ handleClose, handleOpen }} setShowOverlay={setShowOverlay}></PostsOverlay>
                 : ''
             }
             <PostsOverlayModal open={open} modal={{ handleClose }} setShowOverlay={setShowOverlay}></PostsOverlayModal>

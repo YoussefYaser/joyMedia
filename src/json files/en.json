@@ -37,7 +37,13 @@
     "postOverlay" : {
         "createPost" : "Crate a post",
         "placeholder" : "What do you want to talk about?",
-        "post" : "post"
-
+        "post" : "post",
+        "warning" : "Are you sure you want to close and undo post?",
+        "yes" : "yes",
+        "no" : "no"
+    },
+    "myPosts" : {
+        "myPosts" : "my posts",
+        "NoPosts" : "no posts yet"
     }
 }

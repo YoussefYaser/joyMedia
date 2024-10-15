@@ -62,11 +62,8 @@ export default function Posts({ setPostsLoaded }) {
     function refetchOnScroll() {
 
         if ((Math.round(document.body.clientHeight - window.innerHeight) == Math.round(window.scrollY))) {
-            console.log(postNum);
 
-            if (postNum + 10 <= 50) {
-                setPostNum(postNum + 10);
-            }
+            setPostNum(postNum + 10);
         }
     }
 
@@ -90,8 +87,6 @@ export default function Posts({ setPostsLoaded }) {
             window.removeEventListener('scroll', refetchOnScroll);
         }
     }, [postNum]);
-
-
 
 
 
