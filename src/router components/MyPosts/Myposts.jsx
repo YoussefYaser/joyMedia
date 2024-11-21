@@ -6,17 +6,34 @@ import { Skeleton } from '@mui/material';
 import PostItem from '../../components/PostItem/PostItem';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useChangeProfileImageMutation } from '../../libs/RTK Query/joyMediaApi';
 
 export default function Myposts({ onMain }) {
 
+
+    let [profileImage, setProfileImage] = useState('');
+
+
+
     let userDetails = useSelector((store) => store.userDetails);
 
-    let { data: posts, isLoading, isFetching, isError, error, isSuccess } = useQuery({
+    
+
+    let { data: posts, isLoading : isLoadingPosts, isFetching, isError: isErrorPosts, error:errorPosts, isSuccess: isSuccessPosts, refetch } = useQuery({
         queryKey: ['myPosts'],
         queryFn: getUserPosts,
         select: (data) => data.data.posts,
         refetchOnWindowFocus: false
-    })
+    });
+
+    // console.log(isFetching);
+    
+
+    let [changeProfile, { data, isLoading, isSuccess, isError, error }] = useChangeProfileImageMutation();
+
+    // console.log(data, isLoading, isSuccess, isError, error);
+
 
 
     function handleLoading() {
@@ -49,9 +66,27 @@ export default function Myposts({ onMain }) {
         return temp;
     }
 
+    function changeProfileImage(e) {
+
+        let formData = new FormData();
+        formData.append('photo', e.target.files[0]);
+
+        let token = localStorage.getItem('joyMediaToken');
+        let headers = {
+            token: token
+        }
+        changeProfile({formData, headers});
+    }
+
     const { t } = useTranslation();
 
-    if (isLoading) {
+    useEffect(()=>{
+        if(isSuccess)
+            console.log(profileImage);
+            
+    }, [isSuccess])
+
+    if (isLoadingPosts) {
         return (
             <div className='my-posts py-10 px-4'>
                 <div className="container">
@@ -60,26 +95,28 @@ export default function Myposts({ onMain }) {
             </div>
         )
     }
-    else if (isSuccess) {
+    else if (isSuccessPosts) {
         return (
             <section className={`${onMain ? '' : 'my-posts py-10'}`} style={{ minHeight: 'calc(100vh - 56px)' }}>
                 <div className={`${onMain ? '' : 'container'} `}>
-                    
-                    {onMain?'':<div className='mb-5'>
+
+                    {onMain ? '' : <div className='mb-5'>
                         <h2 className=' text-h1 text-center  capitalize mb-3 text-darkBlueColor dark:text-white'>
                             {userDetails.name} {t("profile.profile")}
                         </h2>
                         <div className='size-40 overflow-hidden mx-auto rounded-full border-4 border-darkBlueColor dark:border-white mb-3'>
-                            <img src={userDetails.photo} className=' w-full'  alt="" />
+                            <img src={userDetails.photo} className=' w-full' alt="" />
                         </div>
-                        <label htmlFor='profile-image' className=' block w-fit mx-auto capitalize cursor-pointer text-black hover:text-grayColor'>{t("profile.photo")}</label>
-                        <input id='profile-image' type="file" className='hidden' />
+                        <label htmlFor='profile-image' className=' block w-fit mx-auto capitalize cursor-pointer text-black hover:text-grayColor'>
+                            {t("profile.photo")}
+                        </label>
+                        <input id='profile-image' type="file" className='hidden' onChange={changeProfileImage} />
                         <ul className=' w-fit mx-auto text-center mt-6 capitalize text-darkerBlueColor dark:text-white'>
                             <li>{userDetails.gender}</li>
                             <li>{userDetails.dateOfBirth}</li>
                         </ul>
                     </div>}
-                    
+
                     <div className={`w-full ${onMain ? '' : 'md:w-1/2 mx-auto'} `}>
                         <h2 className=' text-h1 text-center mb-5 capitalize text-darkBlueColor dark:text-white'>
                             {userDetails.name} {t("myPosts.myPosts")}

@@ -51,5 +51,9 @@
     "profile": {
         "profile" : "حساب ",
         "photo" : "تغيير صورة الحساب"
+    }, 
+    "comment" : {
+        "placeholder" : "كتابة تعليق", 
+        "button" : "انشاء تعليق"
     }
 }

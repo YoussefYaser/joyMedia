@@ -40,7 +40,7 @@ const Nav = forwardRef(function Nav(props, { nav }) {
 
     const handleOverlay = useCallback(() => {
         setShowOverlay(true);
-        document.body.style.setProperty('overflow', 'hidden')
+        document.body.style.setProperty('overflow', 'hidden');
     }, []);
 
     const handleLogout = useCallback(() => {

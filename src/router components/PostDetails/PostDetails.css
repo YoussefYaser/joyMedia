@@ -1,0 +1,24 @@
+.post-details{
+    background: linear-gradient(115deg, #bebebe, white 40%);
+}
+
+body.dark .post-details{
+    background: linear-gradient(115deg, #182a3d, #084480);
+}
+
+.post-details .comments-box::-webkit-scrollbar{
+    width: 10px;
+}
+
+.post-details .comments-box::-webkit-scrollbar-thumb{
+    background-color: #084480;
+    border-radius: 100px;
+    
+}
+
+.post-details .comments-box::-webkit-scrollbar-track{
+    display: inline-block;
+    background-color: #e4e4e4;
+    box-shadow: 0 0 3px 0 #777;
+    border-radius: 100px;
+}

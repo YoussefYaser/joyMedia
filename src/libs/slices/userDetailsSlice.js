@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { object } from 'yup'
 
 const user = {
     name : '',
@@ -22,6 +21,6 @@ export const userDetailsSlice = createSlice({
     },
 })
 
-export const { changeDetails } = userDetailsSlice.actions
+export const { changeDetails } = userDetailsSlice.actions;
 
 export  const userDetailsSliceReducer = userDetailsSlice.reducer;

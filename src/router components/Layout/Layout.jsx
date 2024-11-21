@@ -18,7 +18,7 @@ export default function Layout() {
     }, [nav, isLogin]);
 
     return (
-        <section className='layout' style={navHeight}>
+        <section className='layout min-h-screen flex flex-col' style={navHeight}>
             {isLogin ?
                 <Nav ref={{ nav }}></Nav>
                 : ''

@@ -41,6 +41,7 @@ export default function SignUp({ signUp, results }) {
         }
     });
 
+
     useEffect(() => {
         if (isSuccess) {
             toast.success('Your account has successfuly created!');

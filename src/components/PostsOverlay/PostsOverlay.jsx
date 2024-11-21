@@ -5,8 +5,12 @@ import * as Yup from 'yup'
 import { useEffect, useState } from 'react';
 import { useCreatePostMutation } from '../../libs/RTK Query/joyMediaApi';
 import { useNavigate } from 'react-router-dom';
+import { useQueryClient } from '@tanstack/react-query';
 
 export default function PostsOverlay({ modal, setShowOverlay }) {
+
+    const queryClient = useQueryClient();
+
 
     let navigate = useNavigate();
 
@@ -18,9 +22,8 @@ export default function PostsOverlay({ modal, setShowOverlay }) {
     });
 
 
-    let [post, { data, isLoading, isSuccess, isError, error }] = useCreatePostMutation();
+    let [post, { data, isLoading, isSuccess, isError, error }] = useCreatePostMutation();    
 
-    console.log(isSuccess);
     
 
     let initialValues = {
@@ -40,9 +43,13 @@ export default function PostsOverlay({ modal, setShowOverlay }) {
             let headers = {
                 token: token
             }
+
             let formData = new FormData();
             formData.append('body', values.body);
-            formData.append('image', values.image);
+            if(values.image){
+                formData.append('image', values.image);
+            }
+
             post({ formData, headers });
         }
     })
@@ -74,6 +81,11 @@ export default function PostsOverlay({ modal, setShowOverlay }) {
         if(isSuccess){
             setShowOverlay(false);
             navigate('/myPosts');
+            queryClient.invalidateQueries(['myPosts']);
+            setTimeout(() => {
+                document.body.style.setProperty('overflow', 'visible');
+            }, 100);
+
         }
     }, [isSuccess]);
 
@@ -85,7 +97,7 @@ export default function PostsOverlay({ modal, setShowOverlay }) {
             <div className={` py-5 h-screen overflow-auto ${file ? '' : 'flex items-center'}`}>
                 <div className="container ">
                     <div className=' w-full max-w-[720px] mx-auto bg-lightGrayColor dark:bg-darkBlueColor px-3 py-5 rounded-md   '>
-                        <span className=' text-darkBlueColor dark: text-grayColor block w-fit ms-auto cursor-pointer' onClick={() => modal.handleOpen()}>
+                        <span className=' text-darkBlueColor dark:text-grayColor block w-fit ms-auto cursor-pointer' onClick={() => modal.handleOpen()}>
                             <i className="fa-solid fa-x" />
                         </span>
                         <h2 className=' text-h1 lowercase text-center text-darkBlueColor dark:text-white'>joyMedia</h2>
