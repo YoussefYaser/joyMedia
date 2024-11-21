@@ -43,7 +43,7 @@ export default function PostsOverlayModal({open, modal, setShowOverlay}) {
             >
                 <Fade in={open}>
                     <Box sx={style} className="rounded-xl border-none outline-none w-5/6 sm:w-1/2 dark:bg-darkerBlueColor dark:text-white">
-                        <Typography className='text-h3 mb-4 font-bold' id="modal-modal-title" variant="h6" component="h2">
+                        <Typography className='text-h3 mb-4 font-bold text-black' id="modal-modal-title" variant="h6" component="h2">
                             {t("postOverlay.warning")}
                         </Typography>
                         <button className=' bg-darkBlueColor text-white py-1 px-4 rounded capitalize me-3' onClick={cancelPost}>

@@ -98,7 +98,7 @@ export default function PostItem({ post }) {
                 </button>
             </> : ''}
 
-            <textarea dir={i18next.dir()} type="text" className='w-full h-20 mt-5 border-2 bg-white dark:bg-[#dcdcdc] border-darkBlueColor rounded p-2' value={isSuccess?'':yourComment} placeholder={`${t('comment.placeholder')}`} onChange={(e)=>setYourComment(e.target.value)} />
+            <textarea dir={i18next.dir()} type="text" className='w-full h-20 mt-5 text-black border-2 bg-white dark:bg-[#dcdcdc] border-darkBlueColor rounded p-2' value={isSuccess?'':yourComment} placeholder={`${t('comment.placeholder')}`} onChange={(e)=>setYourComment(e.target.value)} />
             <button type='button' className='capitalize bg-darkBlueColor relative text-white p-2 rounded-md text-[12px] block ms-auto hover:bg-darkerBlueColor transition-colors' onClick={handleCreateComment}>
                 <span className={`${!isLoading?'opacity-100' : 'opacity-0'}`}>
                     {t('comment.button')}

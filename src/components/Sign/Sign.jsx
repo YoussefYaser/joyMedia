@@ -92,14 +92,14 @@ export default function Sign({ postsLoaded }) {
                                                 </li>
                                             </ul>
                                         </div>
-                                        <button className=' bg-white border-2 border-black py-1 px-2 rounded-md hover:bg-black hover:text-white transition-colors duration-300 capitalize' onClick={() => setSign('sign-up')}>{t("sign.signIn")}</button>
+                                        <button className=' bg-white text-black border-2 border-black py-1 px-2 rounded-md hover:bg-black hover:text-white transition-colors duration-300 capitalize' onClick={() => setSign('sign-up')}>{t("sign.signIn")}</button>
                                     </div>
                                     <div className='sign-up w-1/2 p-3 flex flex-col items-center'>
                                         <h2 className=' capitalize mb-4 text-white'>{t("sign.signUp")}</h2>
                                         <p className='mb-4 text-grayColor'>
                                             "Join JoyMedia today! Connect, share, and discover a world of meaningful connections and joyful moments. Sign up now to be part of our vibrant community!"
                                         </p>
-                                        <button className=' bg-white border-2 border-black py-1 px-2 rounded-md hover:bg-black hover:text-white transition-colors duration-300 capitalize' onClick={() => setSign('sign-in')}>{t("sign.signUp")}</button>
+                                        <button className=' bg-white border-2 text-black border-black py-1 px-2 rounded-md hover:bg-black hover:text-white transition-colors duration-300 capitalize' onClick={() => setSign('sign-in')}>{t("sign.signUp")}</button>
                                     </div>
                                 </div>
                             </div>

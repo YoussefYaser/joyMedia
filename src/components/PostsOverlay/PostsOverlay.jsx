@@ -104,7 +104,7 @@ export default function PostsOverlay({ modal, setShowOverlay }) {
                         <h3 className='  text-black text-center dark:text-white mb-3'>{t("postOverlay.createPost")}</h3>
                         <img src={file.blob} className=' w-full mb-3' alt="" />
                         {/* <video src={file.blob} className=' w-full mb-3' alt="" autoPlay muted /> */}
-                        <textarea type="text" name='body' className={` w-full h-52 border-2 ${formik.errors.body ? 'border-red-600' : ''}  bg-[#e0e0e0] rounded-md p-2`} placeholder={t("postOverlay.placeholder")} onChange={formik.handleChange}></textarea>
+                        <textarea type="text" name='body' className={` text-black w-full h-52 border-2 ${formik.errors.body ? 'border-red-600' : ''}  bg-[#e0e0e0] rounded-md p-2`} placeholder={t("postOverlay.placeholder")} onChange={formik.handleChange}></textarea>
                         <div className='flex items-center mt-3'>
                             <label htmlFor='file' className='text-darkBlueColor dark:text-lightGrayColor text-2xl cursor-pointer me-1'>
                                 <i className="fa-solid fa-file-arrow-up" />

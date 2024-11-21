@@ -117,7 +117,7 @@ const Nav = forwardRef(function Nav(props, { nav }) {
                         </div>
                         <div className="bar flex items-center relative z-[999]">
                             <div className={` flex items-center rounded-md ${bar ? 'show' : ''}`}>
-                                <button className=' bg-white dark:bg-lightGrayColor border-2 border-black dark:border-darkerBlueColor py-1 px-2 me-3 rounded-md hover:bg-black dark:hover:bg-darkBlueColor hover:text-white transition-colors duration-300' onClick={handleLogout}>
+                                <button className=' bg-white text-black dark:bg-lightGrayColor border-2 border-black dark:border-darkerBlueColor py-1 px-2 me-3 rounded-md hover:bg-black dark:hover:bg-darkBlueColor hover:text-white transition-colors duration-300' onClick={handleLogout}>
                                     {t("sign.logout")}
                                 </button>
                                 <LanguageSelector block="block"></LanguageSelector>
