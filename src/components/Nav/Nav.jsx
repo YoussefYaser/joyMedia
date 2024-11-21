@@ -91,7 +91,7 @@ const Nav = forwardRef(function Nav(props, { nav }) {
 
     return (
         <>
-            <nav className={`bg-lightGrayColor dark:bg-darkerBlueColor fixed w-full top-0 start-0 shadow z-[9999] ${navScroll?'opacity-50':'opacity-100'} hover:opacity-100 transition-opacity duration-500`} ref={nav}>
+            <nav dir='ltr' className={`bg-lightGrayColor dark:bg-darkerBlueColor fixed w-full top-0 start-0 shadow z-[9999] ${navScroll?'opacity-50':'opacity-100'} hover:opacity-100 transition-opacity duration-500`} ref={nav}>
                 <div className="container">
                     <div className=' flex justify-between items-center py-2'>
                         <h1 className='text-h2 '>
